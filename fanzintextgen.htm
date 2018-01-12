@@ -1,0 +1,76 @@
+<html>
+   <head>
+      <title>Fanzine Title Generator</title>
+   </head>
+   
+   <body>
+   
+<script type="text/javascript">
+function validate() {
+document.getElementById("message").innerHTML = "" ;
+var textv = document.forms["formz"]["textz"].value;
+var textl = document.forms["formz"]["textz"].value.length;
+var texts = document.forms["formz"]["texts"].value;
+var textr = document.forms["formz"]["textr"].value;
+
+var step;
+
+var textv = textv.replace(/\s/g, "_");
+var textv = textv.replace("'", "~");
+
+
+for (step = 1; step <= textl; step++) { 
+
+
+var seq = Math.floor((Math.random() * textr) + 1);
+document.getElementById("message").innerHTML += "<img src='alpha/" + textv.charAt(step-1).toUpperCase() + seq + ".png' height='" + texts +"'>"  ;
+
+} 
+
+
+
+return false;
+
+}  
+      </script>
+
+
+
+
+
+<form name="formz" id="formz" onsubmit="return validate()">
+Text: <br/>
+<textarea name = "textz" id="myTextBox" rows="4" cols="50" /> </textarea><br/>
+Variation:
+<select id="textr">
+  <option value="1" selected="selected">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="6">7</option>
+  <option value="6">8</option>
+  <option value="6">9</option>
+  <option value="6">10</option>
+</select>
+
+Size:
+<select id="texts">
+  <option value="10">10</option>
+  <option value="25">25</option>
+  <option value="50">50</option>
+  <option value="75">75</option>
+  <option value="100" selected="selected">100</option>
+  <option value="150">150</option>
+  <option value="200">200</option>
+  <option value="300">300</option>
+</select>
+
+<input type="submit" name="submit" value="submit" />
+</form>    
+<div id="message"></div>
+
+   </body>
+</html>
+
